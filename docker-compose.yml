@@ -1,0 +1,36 @@
+services:
+  directus:
+    image: directus/directus:11.1.0
+    ports:
+      - 8055:8055
+    env_file: .env
+    environment:
+      DB_DATABASE: directus
+      DB_USER: docker
+      DB_PASSWORD: directus123
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    depends_on:
+      - postgres
+      - redis
+  redis:
+    image: redis:6.2-alpine
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ./redis-data:/data
+
+  postgres:
+    image: postgres:15.2-alpine
+    deploy:
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - ./postgresql/data/postgres:/var/lib/postgresql/data
+      - ./postgresql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: directus
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: directus123
