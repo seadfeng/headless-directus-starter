@@ -1,7 +1,7 @@
 import { defineOperationApp } from '@directus/extensions-sdk';
 
 export default defineOperationApp({
-	id: 'markdown-to-html',
+	id: 'markdownToHtml',
 	name: 'Markdown To HTML',
 	icon: 'box',
 	description: 'This is Markdown To HTML operation!',

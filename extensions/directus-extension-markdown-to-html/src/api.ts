@@ -6,7 +6,7 @@ type Options = {
 };
 
 export default defineOperationApi<Options>({
-	id: 'markdown-to-html',
+	id: 'markdownToHtml',
 	handler: async ({ text }) => {
 		const html = await marked(text);
 		return { text: html };
