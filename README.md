@@ -33,6 +33,12 @@ cp .env.example .env
 docker compose up -d
 ```
 
+
+## Default Admin & Password
+
+- User: admin@example.com
+- Password: d1r3ctu5
+
 ## Installed Extensions
 
 - [directus-extension-tags-m2m-interface](https://github.com/dimitrov-adrian/directus-extension-tags-m2m-interface.git)
