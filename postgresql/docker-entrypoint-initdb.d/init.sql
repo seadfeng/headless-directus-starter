@@ -1,5 +1,6 @@
 SET session_replication_role = 'replica';
 
+
 --
 -- PostgreSQL database dump
 --
@@ -941,7 +942,8 @@ CREATE TABLE public.posts (
     date_updated timestamp without time zone NOT NULL,
     views integer DEFAULT 0 NOT NULL,
     date_published timestamp with time zone NOT NULL,
-    featured boolean
+    featured boolean,
+    keywords character varying(255) DEFAULT NULL::character varying
 );
 
 
@@ -1270,23 +1272,21 @@ ffc7c13e-a302-4ecb-9e33-bdeb261ba725	a111ed3a-859a-4365-9c5e-ae3783d69ba5	\N	ac5
 9204e6bc-7681-46b3-9f7c-d01da46b1a6f	1de2bdca-b3a5-4fdb-b14f-ff9779a483fb	\N	25b9b60b-f1ed-4a91-829f-8195c80504c3	1
 \.
 
+
+--
+-- Data for Name: directus_activity; Type: TABLE DATA; Schema: public; Owner: docker
+--
+
+COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, collection, item, comment, origin) FROM stdin;
+2183	delete	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 03:01:40.564+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_flows	51695110-16fe-4b5f-8665-a2c78d45aaca	\N	http://localhost:8055
+\.
+
+
 --
 -- Data for Name: directus_collections; Type: TABLE DATA; Schema: public; Owner: docker
 --
 
 COPY public.directus_collections (collection, icon, note, display_template, hidden, singleton, translations, archive_field, archive_app_filter, archive_value, unarchive_value, sort_field, accountability, color, item_duplication_fields, sort, "group", collapse, preview_url, versioning) FROM stdin;
-about_us_profiles	import_export	\N	\N	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	1	about_us	open	\N	f
-posts_categories	import_export	\N	\N	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	1	posts	open	\N	f
-posts_tags	import_export	\N	\N	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	2	posts	open	\N	f
-related	\N	\N	{{related_posts_id.title}}	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	3	posts	open	\N	f
-posts	breaking_news_alt_1	\N	\N	f	f	\N	status	t	archived	draft	\N	all	\N	\N	1	\N	open	\N	f
-static_pages	menu_book	\N	\N	f	f	\N	status	t	archived	draft	\N	all	\N	\N	2	\N	open	\N	f
-categories	category	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	3	\N	open	\N	f
-tags	sell	\N	{{name}}	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	4	\N	open	\N	f
-profiles	\N	\N	{{name}} ({{user_id.email}})	f	f	\N	status	t	archived	draft	\N	all	\N	\N	5	\N	open	\N	f
-about_us	co_present	\N	\N	f	t	\N	\N	t	\N	\N	\N	all	\N	\N	6	\N	open	\N	f
-config	settings_alert	\N	\N	f	t	\N	\N	t	\N	\N	\N	all	\N	\N	7	\N	open	\N	f
-routings	router	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	8	\N	open	\N	f
 \.
 
 
@@ -1308,6 +1308,9 @@ t	0313532b-295e-4e32-93c4-625ffc147ab3	25990187-d028-4099-ae46-70232d998d9f	regi
 t	e25af610-381b-4787-9ce6-a18dbffa863a	9bde3cf6-c3bd-4bbf-befe-e65294d4b632	registry	\N
 t	78fc600e-085d-49e2-8c28-9e952a1765d9	e3065f4a-5810-431f-9a1c-2c8c3847e562	registry	\N
 t	e9432070-157d-46ef-9bd6-ea1880e26188	directus-extension-hook-action	local	\N
+t	2cba5a87-43f9-41d5-b917-b9dc05aaad49	directus-extension-markdown-to-html	local	\N
+t	7be6f209-7702-4005-a449-1e3eef02a030	directus-extension-gemini-ai	local	\N
+t	ca83a063-a522-4872-bbdb-0e87b82388d9	directus-extension-google-ai	local	\N
 \.
 
 
@@ -1347,20 +1350,6 @@ COPY public.directus_fields (id, collection, field, special, interface, options,
 78	static_pages	content	\N	input-rich-text-html	\N	\N	\N	f	f	11	full	\N	\N	\N	t	\N	\N	\N
 72	static_pages	user_updated	user-updated,user-created	select-dropdown-m2o	{"template":"{{avatar.$thumbnail}} {{first_name}} {{last_name}}"}	user	\N	t	t	5	half	\N	\N	\N	f	\N	\N	\N
 73	static_pages	date_updated	date-updated,date-created	datetime	\N	datetime	{"relative":true}	t	t	6	half	\N	\N	\N	f	\N	\N	\N
-1	posts	id	uuid	input	\N	\N	\N	t	t	1	full	\N	\N	\N	f	\N	\N	\N
-67	posts	date_published	date-created	datetime	\N	datetime	\N	f	f	3	half	\N	\N	\N	t	\N	\N	\N
-3	posts	user_created	user-created	select-dropdown-m2o	{"template":"{{avatar.$thumbnail}} {{first_name}} {{last_name}}"}	user	\N	t	t	4	half	\N	\N	\N	f	\N	\N	\N
-4	posts	date_created	date-created	datetime	\N	datetime	{"relative":true}	t	t	5	half	\N	\N	\N	f	\N	\N	\N
-5	posts	user_updated	user-updated,user-created	select-dropdown-m2o	{"template":"{{avatar.$thumbnail}} {{first_name}} {{last_name}}"}	user	\N	t	t	6	half	\N	\N	\N	f	\N	\N	\N
-50	posts	date_updated	date-updated,date-created	datetime	\N	\N	\N	f	t	7	half	\N	\N	\N	f	\N	\N	\N
-6	posts	title	\N	input	\N	\N	\N	f	f	8	full	\N	\N	\N	t	\N	\N	\N
-8	posts	slug	\N	extension-wpslug	{"template":"{{title}}"}	\N	\N	f	f	9	full	\N	\N	\N	t	\N	\N	\N
-9	posts	cover	file	file-image	\N	image	\N	f	f	10	full	\N	\N	\N	f	\N	\N	\N
-79	posts	featured	cast-boolean	boolean	{"colorOn":"#3399FF"}	\N	\N	f	f	11	full	\N	\N	\N	f	\N	\N	\N
-22	posts	meta_title	\N	input	\N	\N	\N	f	f	12	full	\N	\N	\N	f	\N	\N	\N
-20	posts	meta_description	\N	input-multiline	{"trim":true}	\N	\N	f	f	13	full	\N	\N	\N	f	\N	\N	\N
-7	posts	content	\N	input-rich-text-html	\N	\N	\N	f	f	14	full	\N	\N	\N	t	\N	\N	\N
-51	posts	views	\N	input	\N	\N	\N	f	t	18	full	\N	\N	\N	f	\N	\N	\N
 10	categories	id	uuid	input	\N	\N	\N	t	t	1	full	\N	\N	\N	f	\N	\N	\N
 11	categories	user_created	user-created	select-dropdown-m2o	{"template":"{{avatar.$thumbnail}} {{first_name}} {{last_name}}"}	user	\N	t	t	2	half	\N	\N	\N	f	\N	\N	\N
 12	categories	date_created	date-created	datetime	\N	datetime	{"relative":true}	t	t	3	half	\N	\N	\N	f	\N	\N	\N
@@ -1384,6 +1373,18 @@ COPY public.directus_fields (id, collection, field, special, interface, options,
 108	profiles	facebook	\N	input	\N	\N	\N	f	f	10	half	\N	\N	\N	f	\N	\N	\N
 109	profiles	github	\N	input	\N	\N	\N	f	f	11	half	\N	\N	\N	f	\N	\N	\N
 117	profiles	whatsapp	\N	input	\N	\N	\N	f	f	18	half	\N	\N	\N	f	\N	\N	\N
+1	posts	id	uuid	input	\N	\N	\N	t	t	1	full	\N	\N	\N	f	\N	\N	\N
+3	posts	user_created	user-created	select-dropdown-m2o	{"template":"{{avatar.$thumbnail}} {{first_name}} {{last_name}}"}	user	\N	t	t	4	half	\N	\N	\N	f	\N	\N	\N
+4	posts	date_created	date-created	datetime	\N	datetime	{"relative":true}	t	t	5	half	\N	\N	\N	f	\N	\N	\N
+50	posts	date_updated	date-updated,date-created	datetime	\N	\N	\N	f	t	7	half	\N	\N	\N	f	\N	\N	\N
+6	posts	title	\N	input	\N	\N	\N	f	f	8	full	\N	\N	\N	t	\N	\N	\N
+8	posts	slug	\N	extension-wpslug	{"template":"{{title}}"}	\N	\N	f	f	9	full	\N	\N	\N	t	\N	\N	\N
+9	posts	cover	file	file-image	\N	image	\N	f	f	11	full	\N	\N	\N	f	\N	\N	\N
+79	posts	featured	cast-boolean	boolean	{"colorOn":"#3399FF"}	\N	\N	f	f	12	full	\N	\N	\N	f	\N	\N	\N
+22	posts	meta_title	\N	input	\N	\N	\N	f	f	13	full	\N	\N	\N	f	\N	\N	\N
+20	posts	meta_description	\N	input-multiline	{"trim":true}	\N	\N	f	f	14	full	\N	\N	\N	f	\N	\N	\N
+7	posts	content	\N	input-rich-text-html	\N	\N	\N	f	f	15	full	\N	\N	\N	t	\N	\N	\N
+51	posts	views	\N	input	\N	\N	\N	f	t	19	full	\N	\N	\N	f	\N	\N	\N
 105	profiles	date_created	date-created	datetime	\N	datetime	{"relative":true}	t	t	7	half	\N	\N	\N	f	\N	\N	\N
 118	profiles	snapchat	\N	input	\N	\N	\N	f	f	19	half	\N	\N	\N	f	\N	\N	\N
 119	profiles	pinterest	\N	input	\N	\N	\N	f	f	20	half	\N	\N	\N	f	\N	\N	\N
@@ -1428,12 +1429,15 @@ COPY public.directus_fields (id, collection, field, special, interface, options,
 132	profiles	user_id	m2o	select-dropdown-m2o	{"enableCreate":false,"template":"{{email}}"}	user	\N	f	f	3	half	[{"language":"en-US","translation":"User"}]	\N	\N	f	\N	\N	\N
 153	posts_categories	id	\N	\N	\N	\N	\N	f	t	1	full	\N	\N	\N	f	\N	\N	\N
 154	posts_categories	posts_id	\N	\N	\N	\N	\N	f	t	2	full	\N	\N	\N	f	\N	\N	\N
-31	posts	tag_ids	m2m	extension-tags-m2m	{"referencingField":"name","allowMultiple":true}	\N	\N	f	f	16	full	[{"language":"en-US","translation":"Tags"}]	\N	\N	f	\N	\N	\N
-2	posts	status	\N	select-dropdown	{"choices":[{"text":"$t:published","value":"published","color":"var(--theme--primary)"},{"text":"$t:draft","value":"draft","color":"var(--theme--foreground)"},{"text":"$t:archived","value":"archived","color":"var(--theme--warning)"}]}	labels	{"showAsDot":true,"choices":[{"text":"$t:published","value":"published","color":"var(--theme--primary)","foreground":"var(--theme--primary)","background":"var(--theme--primary-background)"},{"text":"$t:draft","value":"draft","color":"var(--theme--foreground)","foreground":"var(--theme--foreground)","background":"var(--theme--background-normal)"},{"text":"$t:archived","value":"archived","color":"var(--theme--warning)","foreground":"var(--theme--warning)","background":"var(--theme--warning-background)"}]}	f	f	2	half	\N	\N	\N	f	\N	\N	\N
-47	posts	related	m2m	list-m2m	{"enableCreate":false,"layout":"table","fields":["related_posts_id.title","related_posts_id.status","related_posts_id.cover.$thumbnail"]}	related-values	{"template":"{{posts_id.title}}"}	f	f	17	full	\N	\N	\N	f	\N	\N	\N
-152	posts	category_ids	m2m	list-m2m	{"template":"{{categories_id.name}}"}	related-values	{"template":"{{categories_id.name}}"}	f	f	15	full	[{"language":"en-US","translation":"Categories"}]	\N	\N	f	\N	\N	\N
 141	tags	posts_count	\N	input	\N	\N	\N	t	f	6	full	\N	\N	\N	f	\N	\N	\N
 157	tags	display_name	\N	input	\N	\N	\N	f	f	5	half	\N	\N	\N	f	\N	\N	\N
+2	posts	status	\N	select-dropdown	{"choices":[{"text":"$t:published","value":"published","color":"var(--theme--primary)"},{"text":"$t:draft","value":"draft","color":"var(--theme--foreground)"},{"text":"$t:archived","value":"archived","color":"var(--theme--warning)"}]}	labels	{"showAsDot":true,"choices":[{"text":"$t:published","value":"published","color":"var(--theme--primary)","foreground":"var(--theme--primary)","background":"var(--theme--primary-background)"},{"text":"$t:draft","value":"draft","color":"var(--theme--foreground)","foreground":"var(--theme--foreground)","background":"var(--theme--background-normal)"},{"text":"$t:archived","value":"archived","color":"var(--theme--warning)","foreground":"var(--theme--warning)","background":"var(--theme--warning-background)"}]}	f	f	2	half	\N	\N	\N	f	\N	\N	\N
+67	posts	date_published	date-created	datetime	\N	datetime	\N	f	f	3	half	\N	\N	\N	t	\N	\N	\N
+5	posts	user_updated	user-updated,user-created	select-dropdown-m2o	{"template":"{{avatar.$thumbnail}} {{first_name}} {{last_name}}"}	user	\N	t	t	6	half	\N	\N	\N	f	\N	\N	\N
+152	posts	category_ids	m2m	list-m2m	{"template":"{{categories_id.name}}"}	related-values	{"template":"{{categories_id.name}}"}	f	f	16	full	[{"language":"en-US","translation":"Categories"}]	\N	\N	f	\N	\N	\N
+31	posts	tag_ids	m2m	extension-tags-m2m	{"referencingField":"name","allowMultiple":true}	\N	\N	f	f	17	full	[{"language":"en-US","translation":"Tags"}]	\N	\N	f	\N	\N	\N
+47	posts	related	m2m	list-m2m	{"enableCreate":false,"layout":"table","fields":["related_posts_id.title","related_posts_id.status","related_posts_id.cover.$thumbnail"]}	related-values	{"template":"{{posts_id.title}}"}	f	f	18	full	\N	\N	\N	f	\N	\N	\N
+158	posts	keywords	\N	input	\N	\N	\N	f	f	10	full	\N	For SEO AI Content	\N	f	\N	\N	\N
 \.
 
 
@@ -1452,6 +1456,8 @@ bd967ca6-4208-41bd-b808-2d3daf6ffefd	local	bd967ca6-4208-41bd-b808-2d3daf6ffefd.
 
 COPY public.directus_flows (id, name, icon, color, description, status, trigger, accountability, options, operation, date_created, user_created) FROM stdin;
 bb146cc5-15c7-4fb8-beec-c20352943a84	test mail	bolt	\N	\N	active	manual	all	{"collections":["config"]}	b1a4c997-5631-4188-8f08-3ba11362c1b3	2024-10-01 10:41:41.133+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	Content Generator With HTML	bolt	\N	Update Post Content	active	manual	activity	{"collections":["posts"],"location":"item","requireConfirmation":true,"fields":[{"field":"prompt","type":"string","name":"Prompt","meta":{"interface":"select-dropdown","options":{"choices":[{"text":"Rewrite the HTML content based on the topic and SEO keywords","value":"Rewrite the HTML content based on the topic and SEO keywords"}],"allowOther":true},"required":true}},{"field":"html_code","type":"text","name":"HTML","meta":{"interface":"input-multiline","required":true}}]}	6e0c8538-e1d1-4262-8577-5dcdea9fa589	2024-10-10 06:58:41.242+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+70698a53-7105-4728-8a66-1141a1ad4a5f	Build Gemini Prompt	bolt	\N	return string	active	operation	\N	{"return":"$last"}	1a5d7217-3389-4dd6-a477-b9e2867bc7e6	2024-10-10 07:53:27.064+00	c95f7d22-c805-4afc-8c14-d3875b84881c
 \.
 
 
@@ -1569,6 +1575,15 @@ COPY public.directus_notifications (id, "timestamp", status, recipient, sender, 
 
 COPY public.directus_operations (id, name, key, type, position_x, position_y, options, resolve, reject, flow, date_created, user_created) FROM stdin;
 b1a4c997-5631-4188-8f08-3ba11362c1b3	Send Email	mail_zdetv	mail	19	1	{"subject":"Config Changed","body":"Config Changed!","to":"admin@example.com"}	\N	\N	bb146cc5-15c7-4fb8-beec-c20352943a84	2024-10-01 10:43:46.222+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+116dc701-e826-49c1-94f3-b54afd2180d6	Log to Console	log_tt45q	log	5	39	{"message":"trigger {{$trigger}} - last {{$last}}"}	\N	\N	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 07:21:45.892+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+ea03f3dc-13f8-4579-88f7-ee101ee6e98f	Log to Console	log_3q23m	log	22	22	{"message":"Error: {{$last}}"}	\N	\N	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 07:00:09.204+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+2b8b6b46-0ff6-4ae5-8431-67fa1da57120	Update Content	log_vu9lb	item-update	43	41	{"collection":"posts","payload":{"content":"{{$last.text}}"},"key":"{{$trigger.body.keys[0]}}"}	\N	\N	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 08:18:43.302+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+ef5d35f1-936c-4a35-a244-a1c7fdb638b1	Markdown To HTML	markdown_to_html_828vp	markdown-to-html	25	41	{"text":"{{gemini.data}}"}	2b8b6b46-0ff6-4ae5-8431-67fa1da57120	\N	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 13:08:55.764+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+206fe936-75dc-4630-9244-1c610da4598e	Condition	condition_ler5l	condition	43	20	{"filter":{"$last":{"success":{"_eq":true}}}}	ef5d35f1-936c-4a35-a244-a1c7fdb638b1	\N	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 08:47:18.92+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+428ff480-3609-4dbc-b36a-4f9f2c85ccda	Request Gemini API	gemini	google-ai	42	2	{"prompt":"{{prompt}}","aiModel":"gemini-1.5-flash"}	206fe936-75dc-4630-9244-1c610da4598e	\N	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 07:00:09.217+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+7b59c324-ee65-4080-8f24-18922b01f9a2	Build Prompt	prompt	trigger	21	1	{"flow":"70698a53-7105-4728-8a66-1141a1ad4a5f","payload":{"user":"{{ $accountability.user }}","apikey":"Gemini ApiKey","title":"{{post[0].title}}","content":"{{post[0].content}}","keywords":"{{post[0].keywords}}","prompt":"{{ $trigger.body.prompt }}","html_code":"{{ $trigger.body.html_code }}","collection":"{{ $trigger.body.collection }}","keys":["{{ $trigger.body.keys[0] }}"]}}	428ff480-3609-4dbc-b36a-4f9f2c85ccda	ea03f3dc-13f8-4579-88f7-ee101ee6e98f	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 07:00:09.233+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+6e0c8538-e1d1-4262-8577-5dcdea9fa589	Read Post	post	item-read	3	21	{"collection":"posts","emitEvents":true}	7b59c324-ee65-4080-8f24-18922b01f9a2	116dc701-e826-49c1-94f3-b54afd2180d6	fdff203b-d7ce-4ab6-a87d-95be3aee8a2e	2024-10-10 07:17:42.079+00	c95f7d22-c805-4afc-8c14-d3875b84881c
+1a5d7217-3389-4dd6-a477-b9e2867bc7e6	Run Script	exec_jwdj1	exec	19	1	{"code":"/**\\n * Prompt Gemini API\\n * \\n * Content Generator With HTML\\n * @returns \\n */\\nmodule.exports = async function ({ $trigger }) {\\n  // title, keywords, content from post\\n  const { title, keywords, content, prompt, html_code } = $trigger;\\n\\n  let promptStr = `Article topic: ${title}\\\\n\\\\n`;\\n  if (keywords && keywords.trim() !== '') promptStr += `Article SEO keywords: ${keywords}\\\\n\\\\n`;\\n  promptStr += \\"```html\\\\n\\";\\n  promptStr += html_code;\\n  promptStr += \\"```\\\\n\\";\\n\\n  promptStr += `${prompt}\\\\n`;\\n  promptStr += `Article content structure (do not add an opening title): \\\\n\\\\n`;\\n  promptStr += `introduction Without Paragraph heading ... \\\\n\\\\n`;\\n  promptStr += `## Paragraph heading 1\\\\n\\\\n`;\\n  promptStr += `Paragraph...\\\\n\\\\n`;\\n  promptStr += `## Paragraph heading 2\\\\n\\\\n`;\\n  promptStr += `Paragraph...\\\\n\\\\n`;\\n  promptStr += `More sections ...\\\\n\\\\n`;\\n  promptStr += `## conclusion ...\\\\n\\\\n`;\\n  promptStr += `## Resource (if has resource) ...\\\\n\\\\n`;\\n  promptStr += `- [title](url)\\\\n\\\\n`;\\n  promptStr += `Only return the article content, do not return content unrelated to the article. The article paragraphs should have clear hierarchy, and key sentences should be appropriately bolded.`;\\n\\n  return promptStr\\n}\\n"}	\N	\N	70698a53-7105-4728-8a66-1141a1ad4a5f	2024-10-10 07:57:01.163+00	c95f7d22-c805-4afc-8c14-d3875b84881c
 \.
 
 
@@ -1647,12 +1662,13 @@ COPY public.directus_presets (id, bookmark, "user", role, collection, search, la
 3	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	tags	\N	\N	{"tabular":{"page":1,"fields":["name","display_name","posts_count"]}}	{"tabular":{"widths":{"name":185.99609375}}}	\N	\N	bookmark	\N
 13	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	static_pages	\N	\N	{"tabular":{"page":1,"fields":["title","slug","status","meta_title"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
 7	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_users	\N	cards	{"cards":{"sort":["email"],"page":1}}	{"cards":{"icon":"account_circle","title":"{{ first_name }} {{ last_name }}","subtitle":"{{ email }}","size":4}}	\N	\N	bookmark	\N
-2	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	categories	\N	\N	{"tabular":{"page":1,"fields":["position","name","slug","cover"]}}	{"tabular":{"widths":{"position":97.8984375}}}	\N	\N	bookmark	\N
-12	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	profiles	\N	\N	{"tabular":{"page":1,"fields":["name","status","user_id"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
-1	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	posts	\N	\N	{"tabular":{"page":1,"fields":["title","slug","status","views","date_published"]}}	{"tabular":{"widths":{"title":473.98828125,"slug":173.6328125,"status":118.29296875,"views":148.828125,"date_published":284.85546875}}}	\N	\N	bookmark	\N
-4	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	routings	\N	\N	{"tabular":{"page":1,"fields":["name","identity","meta_title","meta_description"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
 15	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	posts_tags	\N	\N	{"tabular":{"page":1,"fields":["date_created"]}}	{"tabular":{"widths":{"date_created":404.9765625}}}	\N	\N	bookmark	\N
 5	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_files	\N	cards	{"cards":{"sort":["-uploaded_on"],"page":1}}	{"cards":{"icon":"insert_drive_file","title":"{{title}}","subtitle":"{{type}} • {{filesize}}","size":5,"imageFit":"crop"}}	\N	\N	bookmark	\N
+4	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	routings	\N	\N	{"tabular":{"page":1,"fields":["name","identity","meta_title","meta_description"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
+1	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	posts	\N	\N	{"tabular":{"page":1,"fields":["title","slug","status","views","date_published"]}}	{"tabular":{"widths":{"title":473.98828125,"slug":173.6328125,"status":118.29296875,"views":148.828125,"date_published":284.85546875}}}	\N	\N	bookmark	\N
+16	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_activity	\N	tabular	{"tabular":{"sort":["-timestamp"],"fields":["action","collection","timestamp","user"],"page":1}}	{"tabular":{"widths":{"action":120,"collection":210,"timestamp":240,"user":240}}}	\N	\N	bookmark	\N
+2	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	categories	\N	\N	{"tabular":{"page":1,"fields":["position","name","slug","cover"]}}	{"tabular":{"widths":{"position":97.8984375}}}	\N	\N	bookmark	\N
+12	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	profiles	\N	\N	{"tabular":{"page":1,"fields":["name","status","user_id"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
 \.
 
 
@@ -1689,6 +1705,15 @@ COPY public.directus_relations (id, many_collection, many_field, one_collection,
 40	posts_categories	posts_id	posts	category_ids	\N	\N	categories_id	\N	delete
 \.
 
+
+--
+-- Data for Name: directus_revisions; Type: TABLE DATA; Schema: public; Owner: docker
+--
+
+COPY public.directus_revisions (id, activity, collection, item, data, delta, parent, version) FROM stdin;
+\.
+
+
 --
 -- Data for Name: directus_roles; Type: TABLE DATA; Schema: public; Owner: docker
 --
@@ -1704,10 +1729,11 @@ a111ed3a-859a-4365-9c5e-ae3783d69ba5	Administrator	verified	$t:admin_description
 --
 
 COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, origin, next_token) FROM stdin;
-6Qvel2X0SGSDGqH3rHZSUVnC34BQOzNOER2NpzMbxZQxHjoN00zoj4kPJuXXvmnO	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-09 09:02:15.375+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
--bcVrLSwpGwq3DNfEHqVLGBcGwBzeoPGG7tV228au3MB5uoxuQ2g0lnyi00nO51X	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-10 05:27:46.343+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
-e4WcAGsbsE_A6cm58zxVqgGfuGyBp8mzxw7-2wjbc-XSNp8mJUJgHRGbAXjX4w29	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-09 07:18:36.571+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	5m7NIbAFaOek6W7CklbUDwsERG_QbK2bP7NFPLRjhbu3OW5yOmXKt9oHIoh9GHOm
-5m7NIbAFaOek6W7CklbUDwsERG_QbK2bP7NFPLRjhbu3OW5yOmXKt9oHIoh9GHOm	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-10 07:18:26.571+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+hlQd51eYVIrlRV10Sv4NAOkKDxfidC5dDtgrdUMroPvaWCaXzMgRSL4cjKBjrFWN	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:24:39.787+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+TSTSsyW8sglax6r3gPz9jD7YiK0vExR0YsyCoOl5yuELRXnhXEjYG4UiSzaKlMOu	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-17 05:32:04.42+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+r3TIaqeN_udpcTwpaJSJ4umloYM12NrZOz7pNFyQQ5Ex4r_Kqd8NysGF-WYiF8Yi	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-17 05:33:44.739+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+NXee5g69XXxLaaHOzMOdOZHC16ciaqdrAq8l_Rb3gdAnDBLSsOrEE3zuS7_mG0TL	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 03:01:24.765+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	2t-Gltigt3SB7VKlZhHTEnC4IRrj-9UuFw2Cnoc77m0vR3IJbLtGHNWLTaAwDBAW
+2t-Gltigt3SB7VKlZhHTEnC4IRrj-9UuFw2Cnoc77m0vR3IJbLtGHNWLTaAwDBAW	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-12 03:01:14.765+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 \.
 
 
@@ -1742,7 +1768,7 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) FROM stdin;
 ae30be52-1092-4f8f-9890-5035478b1bd9	team	example	team@example.com	$argon2id$v=19$m=65536,t=3,p=4$eOk7AmDWI4encuD5p6l+VQ$PuK7TxHm5eBUaN/qs5i9XypK84DcsgpPgtzUGJZ73Tw	\N	\N	\N	\N	\N	\N	\N	active	1de2bdca-b3a5-4fdb-b14f-ff9779a483fb	\N	2024-10-04 17:12:10.956+00	/files/folders/34a9a06b-2b48-49b8-9f2e-86feb90aeb3b	default	\N	\N	t	\N	\N	\N	\N	\N
-c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-09 07:18:26.573+00	/content/posts	default	\N	\N	t	\N	\N	\N	\N	\N
+c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-11 03:01:14.768+00	/settings/flows	default	\N	\N	t	\N	\N	\N	\N	\N
 \.
 
 
@@ -1766,9 +1792,9 @@ COPY public.directus_webhooks (id, name, method, url, status, data, actions, col
 -- Data for Name: posts; Type: TABLE DATA; Schema: public; Owner: docker
 --
 
-COPY public.posts (id, status, user_created, date_created, user_updated, title, content, slug, cover, meta_description, meta_title, date_updated, views, date_published, featured) FROM stdin;
-fbd1a788-2390-4369-9d29-dcd591611fc3	published	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-09 01:46:30.103+00	c95f7d22-c805-4afc-8c14-d3875b84881c	Hello World: The First Step into a New Digital Journey	<p>Whether you're a developer, a beginner, or just a tech enthusiast, "Hello World" is likely one of the first phrases you encounter in programming. It's not just a simple piece of code; it's a symbolic entry into the world of technology. With just a few lines, "Hello World" declares that your journey into the realm of development has officially begun.</p>\n<p>In today&rsquo;s modern applications, however, "Hello World" often involves more than just basic code. Behind the scenes, there can be a complex backend system managing data and functionality. One such system that many developers use is <strong>Directus</strong>. Directus is a no-code/low-code platform that empowers developers to build, extend, and customize their content management systems with ease.</p>\n<p>By leveraging Directus, developers can efficiently manage their content data, even for projects as simple as a "Hello World" app. Whether you're creating a small personal site or a large-scale application, Directus provides a powerful backend that simplifies your development process.</p>\n<p><strong>Conclusion</strong><br>Start your journey with "Hello World" and use modern tools like Directus to make development easier. The door to the digital world is open, and the possibilities are endless!</p>	hello-world	bd967ca6-4208-41bd-b808-2d3daf6ffefd	\N	\N	2024-10-09 05:27:42.599	0	2024-10-09 01:46:30.104+00	\N
-c0947bf2-15a8-4d9e-bea3-5f28cf772d42	published	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-09 05:35:07.802+00	c95f7d22-c805-4afc-8c14-d3875b84881c	What is Directus?	<p>Directus: Revolutionizing Content Management for the Digital Age</p>\n<p>In today's fast-paced digital landscape, businesses need flexible and efficient solutions for managing their content and data. Enter <a href="https://directus.io/" target="_blank" rel="noopener">Directus</a>, an innovative open-source headless CMS that's changing the game for developers and content creators alike.</p>\n<h2>What is Directus?</h2>\n<p>Directus is a modern, open-source headless content management system (CMS) that provides a powerful and flexible solution for managing any type of data. Unlike traditional CMSs, Directus decouples the content management interface from the presentation layer, allowing developers to use any technology stack for the frontend while providing a robust backend for content storage and retrieval.</p>\n<p><strong>Key Features of Directus:</strong></p>\n<ol>\n<li>\n<p>Database-First Approach: Directus can work with any SQL database, instantly transforming it into a dynamic API and intuitive admin app.</p>\n</li>\n<li>\n<p>RESTful API and GraphQL: Offers both REST and GraphQL APIs out of the box, providing developers with flexibility in how they interact with data.</p>\n</li>\n<li>\n<p>User-Friendly Interface: Boasts an intuitive, customizable admin app that makes content management accessible to non-technical users.</p>\n</li>\n<li>\n<p>Extensibility: Supports custom modules, hooks, and interfaces, allowing for tailored solutions to meet specific project needs.</p>\n</li>\n<li>\n<p>Multi-Language Support: Built-in internationalization features for managing multilingual content.</p>\n</li>\n<li>\n<p>Version Control: Includes revision history and the ability to revert changes, ensuring data integrity.</p>\n</li>\n<li>\n<p>Role-Based Access Control: Granular permissions system for secure data management.</p>\n</li>\n</ol>\n<h2>Why Choose Directus?</h2>\n<ol>\n<li>Flexibility: Works with existing databases and can be integrated into any tech stack.</li>\n<li>Scalability: Designed to handle projects of any size, from small websites to large-scale enterprise applications.</li>\n<li>Cost-Effective: Open-source core with self-hosting options, reducing licensing costs.</li>\n<li>Developer-Friendly: Provides the tools developers need without imposing limitations on the frontend technology.</li>\n<li>Future-Proof: Separating content from presentation ensures longevity and adaptability of your projects.</li>\n</ol>\n<p><strong>Use Cases for Directus:</strong></p>\n<ul>\n<li>Content Management for Websites and Apps</li>\n<li>Digital Asset Management</li>\n<li>E-commerce Product Catalogs</li>\n<li>Customer Relationship Management (CRM)</li>\n<li>Internet of Things (IoT) Data Management</li>\n<li>Custom Dashboards and Analytics Platforms</li>\n</ul>\n<h2>Conclusion:</h2>\n<p>Directus stands out as a versatile and powerful solution in the world of content management systems. Its headless architecture, combined with a user-friendly interface and robust API, makes it an excellent choice for businesses looking to streamline their content operations and build scalable, future-proof digital experiences.</p>\n<p>Whether you're a developer seeking flexibility, a content creator looking for an intuitive management interface, or a business owner aiming to optimize your digital presence, Directus offers a comprehensive solution that adapts to your needs and grows with your ambitions.</p>\n<p>Explore Directus today and unlock the full potential of your data and content management capabilities.</p>	what-is-directus	\N	Discover Directus, a powerful open-source headless CMS that transforms any SQL database into a dynamic API and intuitive app for content management.	Directus: The Ultimate Open-Source Headless CMS for Modern Data Management	2024-10-09 07:15:19.366	0	2024-10-09 05:35:07.805+00	\N
+COPY public.posts (id, status, user_created, date_created, user_updated, title, content, slug, cover, meta_description, meta_title, date_updated, views, date_published, featured, keywords) FROM stdin;
+fbd1a788-2390-4369-9d29-dcd591611fc3	published	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-09 01:46:30.103+00	c95f7d22-c805-4afc-8c14-d3875b84881c	Hello World: The First Step into a New Digital Journey	<p>Whether you're a developer, a beginner, or just a tech enthusiast, "Hello World" is likely one of the first phrases you encounter in programming. It's not just a simple piece of code; it's a symbolic entry into the world of technology. With just a few lines, "Hello World" declares that your journey into the realm of development has officially begun.</p>\n<p>In today&rsquo;s modern applications, however, "Hello World" often involves more than just basic code. Behind the scenes, there can be a complex backend system managing data and functionality. One such system that many developers use is <strong>Directus</strong>. Directus is a no-code/low-code platform that empowers developers to build, extend, and customize their content management systems with ease.</p>\n<p>By leveraging Directus, developers can efficiently manage their content data, even for projects as simple as a "Hello World" app. Whether you're creating a small personal site or a large-scale application, Directus provides a powerful backend that simplifies your development process.</p>\n<p><strong>Conclusion</strong><br>Start your journey with "Hello World" and use modern tools like Directus to make development easier. The door to the digital world is open, and the possibilities are endless!</p>	hello-world	bd967ca6-4208-41bd-b808-2d3daf6ffefd	\N	\N	2024-10-10 15:12:25.642	0	2024-10-09 01:46:30.104+00	\N	Hello World
+c0947bf2-15a8-4d9e-bea3-5f28cf772d42	published	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-09 05:35:07.802+00	c95f7d22-c805-4afc-8c14-d3875b84881c	What is Directus?	<p>In today&#39;s fast-paced digital landscape, businesses need flexible and efficient solutions for managing their content and data. Enter <strong>Directus</strong>, an innovative open-source headless CMS that&#39;s changing the game for developers and content creators alike.</p>\n<h2>What is Directus?</h2>\n<p>Directus is a modern, open-source headless content management system (CMS) that provides a powerful and flexible solution for managing any type of data. Unlike traditional CMSs, Directus decouples the content management interface from the presentation layer, allowing developers to use any technology stack for the frontend while providing a robust backend for content storage and retrieval. </p>\n<h2>Key Features of Directus:</h2>\n<ul>\n<li><strong>Database-First Approach:</strong> Directus can work with any SQL database, instantly transforming it into a dynamic API and intuitive admin app.</li>\n<li><strong>RESTful API and GraphQL:</strong> Offers both REST and GraphQL APIs out of the box, providing developers with flexibility in how they interact with data.</li>\n<li><strong>User-Friendly Interface:</strong> Boasts an intuitive, customizable admin app that makes content management accessible to non-technical users.</li>\n<li><strong>Extensibility:</strong> Supports custom modules, hooks, and interfaces, allowing for tailored solutions to meet specific project needs.</li>\n<li><strong>Multi-Language Support:</strong> Built-in internationalization features for managing multilingual content.</li>\n<li><strong>Version Control:</strong> Includes revision history and the ability to revert changes, ensuring data integrity.</li>\n<li><strong>Role-Based Access Control:</strong> Granular permissions system for secure data management.</li>\n</ul>\n<h2>Why Choose Directus?</h2>\n<ul>\n<li><strong>Flexibility:</strong> Works with existing databases and can be integrated into any tech stack.</li>\n<li><strong>Scalability:</strong> Designed to handle projects of any size, from small websites to large-scale enterprise applications.</li>\n<li><strong>Cost-Effective:</strong> Open-source core with self-hosting options, reducing licensing costs.</li>\n<li><strong>Developer-Friendly:</strong> Provides the tools developers need without imposing limitations on the frontend technology.</li>\n<li><strong>Future-Proof:</strong> Separating content from presentation ensures longevity and adaptability of your projects.</li>\n</ul>\n<h2>Use Cases for Directus:</h2>\n<ul>\n<li>Content Management for Websites and Apps</li>\n<li>Digital Asset Management</li>\n<li>E-commerce Product Catalogs</li>\n<li>Customer Relationship Management (CRM)</li>\n<li>Internet of Things (IoT) Data Management</li>\n<li>Custom Dashboards and Analytics Platforms</li>\n</ul>\n<h2>Conclusion:</h2>\n<p>Directus stands out as a versatile and powerful solution in the world of content management systems. Its headless architecture, combined with a user-friendly interface and robust API, makes it an excellent choice for businesses looking to streamline their content operations and build scalable, future-proof digital experiences. </p>\n<p>Whether you&#39;re a developer seeking flexibility, a content creator looking for an intuitive management interface, or a business owner aiming to optimize your digital presence, Directus offers a comprehensive solution that adapts to your needs and grows with your ambitions. Explore Directus today and unlock the full potential of your data and content management capabilities. </p>\n<h2>Resource:</h2>\n<ul>\n<li><a href="https://directus.io/">Directus Website</a></li>\n</ul>\n	what-is-directus	\N	Discover Directus, a powerful open-source headless CMS that transforms any SQL database into a dynamic API and intuitive app for content management.	Directus: The Ultimate Open-Source Headless CMS for Modern Data Management ok	2024-10-10 18:25:41.309	0	2024-10-09 05:35:07.805+00	\N	Directus, Headless CMS, Open-Source CMS, CMS
 \.
 
 
@@ -1866,14 +1892,14 @@ SELECT pg_catalog.setval('public.config_id_seq', 1, true);
 -- Name: directus_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_activity_id_seq', 1441, true);
+SELECT pg_catalog.setval('public.directus_activity_id_seq', 2183, true);
 
 
 --
 -- Name: directus_fields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_fields_id_seq', 157, true);
+SELECT pg_catalog.setval('public.directus_fields_id_seq', 158, true);
 
 
 --
@@ -1894,7 +1920,7 @@ SELECT pg_catalog.setval('public.directus_permissions_id_seq', 43, true);
 -- Name: directus_presets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_presets_id_seq', 15, true);
+SELECT pg_catalog.setval('public.directus_presets_id_seq', 16, true);
 
 
 --
@@ -1908,7 +1934,7 @@ SELECT pg_catalog.setval('public.directus_relations_id_seq', 40, true);
 -- Name: directus_revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_revisions_id_seq', 1333, true);
+SELECT pg_catalog.setval('public.directus_revisions_id_seq', 2067, true);
 
 
 --
@@ -2705,296 +2731,9 @@ ALTER TABLE ONLY public.directus_presets
 
 
 --
--- Name: directus_revisions directus_revisions_activity_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_revisions
-    ADD CONSTRAINT directus_revisions_activity_foreign FOREIGN KEY (activity) REFERENCES public.directus_activity(id) ON DELETE CASCADE;
-
-
---
--- Name: directus_revisions directus_revisions_parent_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_revisions
-    ADD CONSTRAINT directus_revisions_parent_foreign FOREIGN KEY (parent) REFERENCES public.directus_revisions(id);
-
-
---
--- Name: directus_revisions directus_revisions_version_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_revisions
-    ADD CONSTRAINT directus_revisions_version_foreign FOREIGN KEY (version) REFERENCES public.directus_versions(id) ON DELETE CASCADE;
-
-
---
--- Name: directus_roles directus_roles_parent_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_roles
-    ADD CONSTRAINT directus_roles_parent_foreign FOREIGN KEY (parent) REFERENCES public.directus_roles(id);
-
-
---
--- Name: directus_sessions directus_sessions_share_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_sessions
-    ADD CONSTRAINT directus_sessions_share_foreign FOREIGN KEY (share) REFERENCES public.directus_shares(id) ON DELETE CASCADE;
-
-
---
--- Name: directus_sessions directus_sessions_user_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_sessions
-    ADD CONSTRAINT directus_sessions_user_foreign FOREIGN KEY ("user") REFERENCES public.directus_users(id) ON DELETE CASCADE;
-
-
---
--- Name: directus_settings directus_settings_project_logo_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_settings
-    ADD CONSTRAINT directus_settings_project_logo_foreign FOREIGN KEY (project_logo) REFERENCES public.directus_files(id);
-
-
---
--- Name: directus_settings directus_settings_public_background_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_settings
-    ADD CONSTRAINT directus_settings_public_background_foreign FOREIGN KEY (public_background) REFERENCES public.directus_files(id);
-
-
---
--- Name: directus_settings directus_settings_public_favicon_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_settings
-    ADD CONSTRAINT directus_settings_public_favicon_foreign FOREIGN KEY (public_favicon) REFERENCES public.directus_files(id);
-
-
---
--- Name: directus_settings directus_settings_public_foreground_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_settings
-    ADD CONSTRAINT directus_settings_public_foreground_foreign FOREIGN KEY (public_foreground) REFERENCES public.directus_files(id);
-
-
---
--- Name: directus_settings directus_settings_public_registration_role_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_settings
-    ADD CONSTRAINT directus_settings_public_registration_role_foreign FOREIGN KEY (public_registration_role) REFERENCES public.directus_roles(id) ON DELETE SET NULL;
-
-
---
--- Name: directus_settings directus_settings_storage_default_folder_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_settings
-    ADD CONSTRAINT directus_settings_storage_default_folder_foreign FOREIGN KEY (storage_default_folder) REFERENCES public.directus_folders(id) ON DELETE SET NULL;
-
-
---
--- Name: directus_shares directus_shares_collection_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_shares
-    ADD CONSTRAINT directus_shares_collection_foreign FOREIGN KEY (collection) REFERENCES public.directus_collections(collection) ON DELETE CASCADE;
-
-
---
--- Name: directus_shares directus_shares_role_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_shares
-    ADD CONSTRAINT directus_shares_role_foreign FOREIGN KEY (role) REFERENCES public.directus_roles(id) ON DELETE CASCADE;
-
-
---
--- Name: directus_shares directus_shares_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_shares
-    ADD CONSTRAINT directus_shares_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id) ON DELETE SET NULL;
-
-
---
--- Name: directus_users directus_users_role_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_users
-    ADD CONSTRAINT directus_users_role_foreign FOREIGN KEY (role) REFERENCES public.directus_roles(id) ON DELETE SET NULL;
-
-
---
--- Name: directus_versions directus_versions_collection_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_versions
-    ADD CONSTRAINT directus_versions_collection_foreign FOREIGN KEY (collection) REFERENCES public.directus_collections(collection) ON DELETE CASCADE;
-
-
---
--- Name: directus_versions directus_versions_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_versions
-    ADD CONSTRAINT directus_versions_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id) ON DELETE SET NULL;
-
-
---
--- Name: directus_versions directus_versions_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_versions
-    ADD CONSTRAINT directus_versions_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
-
-
---
--- Name: directus_webhooks directus_webhooks_migrated_flow_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.directus_webhooks
-    ADD CONSTRAINT directus_webhooks_migrated_flow_foreign FOREIGN KEY (migrated_flow) REFERENCES public.directus_flows(id) ON DELETE SET NULL;
-
-
---
--- Name: posts_categories posts_categories_categories_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts_categories
-    ADD CONSTRAINT posts_categories_categories_id_foreign FOREIGN KEY (categories_id) REFERENCES public.categories(id) ON DELETE CASCADE;
-
-
---
--- Name: posts_categories posts_categories_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts_categories
-    ADD CONSTRAINT posts_categories_posts_id_foreign FOREIGN KEY (posts_id) REFERENCES public.posts(id) ON DELETE CASCADE;
-
-
---
--- Name: posts posts_cover_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts
-    ADD CONSTRAINT posts_cover_foreign FOREIGN KEY (cover) REFERENCES public.directus_files(id) ON DELETE SET NULL;
-
-
---
--- Name: posts_tags posts_tags_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts_tags
-    ADD CONSTRAINT posts_tags_posts_id_foreign FOREIGN KEY (posts_id) REFERENCES public.posts(id) ON DELETE CASCADE;
-
-
---
--- Name: posts_tags posts_tags_tags_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts_tags
-    ADD CONSTRAINT posts_tags_tags_id_foreign FOREIGN KEY (tags_id) REFERENCES public.tags(id) ON DELETE CASCADE;
-
-
---
--- Name: posts posts_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts
-    ADD CONSTRAINT posts_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
-
-
---
--- Name: posts posts_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.posts
-    ADD CONSTRAINT posts_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
-
-
---
--- Name: profiles profiles_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.profiles
-    ADD CONSTRAINT profiles_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
-
-
---
--- Name: profiles profiles_user_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.profiles
-    ADD CONSTRAINT profiles_user_id_foreign FOREIGN KEY (user_id) REFERENCES public.directus_users(id);
-
-
---
--- Name: profiles profiles_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.profiles
-    ADD CONSTRAINT profiles_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
-
-
---
--- Name: related related_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.related
-    ADD CONSTRAINT related_posts_id_foreign FOREIGN KEY (posts_id) REFERENCES public.posts(id) ON DELETE SET NULL;
-
-
---
--- Name: related related_related_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.related
-    ADD CONSTRAINT related_related_posts_id_foreign FOREIGN KEY (related_posts_id) REFERENCES public.posts(id) ON DELETE SET NULL;
-
-
---
--- Name: routings routings_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.routings
-    ADD CONSTRAINT routings_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
-
-
---
--- Name: static_pages static_pages_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.static_pages
-    ADD CONSTRAINT static_pages_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
-
-
---
--- Name: static_pages static_pages_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.static_pages
-    ADD CONSTRAINT static_pages_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
-
-
---
--- Name: tags tags_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
---
-
-ALTER TABLE ONLY public.tags
-    ADD CONSTRAINT tags_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
-
-
---
 -- PostgreSQL database dump complete
 --
+
 
 
 
