@@ -1279,6 +1279,7 @@ ffc7c13e-a302-4ecb-9e33-bdeb261ba725	a111ed3a-859a-4365-9c5e-ae3783d69ba5	\N	ac5
 
 COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, collection, item, comment, origin) FROM stdin;
 2183	delete	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 03:01:40.564+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_flows	51695110-16fe-4b5f-8665-a2c78d45aaca	\N	http://localhost:8055
+2184	login	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 04:50:37.696+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_users	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	http://localhost:8055
 \.
 
 
@@ -1287,6 +1288,18 @@ COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, 
 --
 
 COPY public.directus_collections (collection, icon, note, display_template, hidden, singleton, translations, archive_field, archive_app_filter, archive_value, unarchive_value, sort_field, accountability, color, item_duplication_fields, sort, "group", collapse, preview_url, versioning) FROM stdin;
+about_us_profiles	import_export	\N	\N	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	1	about_us	open	\N	f
+posts_categories	import_export	\N	\N	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	1	posts	open	\N	f
+posts_tags	import_export	\N	\N	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	2	posts	open	\N	f
+related	\N	\N	{{related_posts_id.title}}	t	f	\N	\N	t	\N	\N	\N	all	\N	\N	3	posts	open	\N	f
+posts	breaking_news_alt_1	\N	\N	f	f	\N	status	t	archived	draft	\N	all	\N	\N	1	\N	open	\N	f
+static_pages	menu_book	\N	\N	f	f	\N	status	t	archived	draft	\N	all	\N	\N	2	\N	open	\N	f
+categories	category	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	3	\N	open	\N	f
+tags	sell	\N	{{name}}	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	4	\N	open	\N	f
+profiles	\N	\N	{{name}} ({{user_id.email}})	f	f	\N	status	t	archived	draft	\N	all	\N	\N	5	\N	open	\N	f
+about_us	co_present	\N	\N	f	t	\N	\N	t	\N	\N	\N	all	\N	\N	6	\N	open	\N	f
+config	settings_alert	\N	\N	f	t	\N	\N	t	\N	\N	\N	all	\N	\N	7	\N	open	\N	f
+routings	router	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	8	\N	open	\N	f
 \.
 
 
@@ -1732,8 +1745,8 @@ COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, or
 hlQd51eYVIrlRV10Sv4NAOkKDxfidC5dDtgrdUMroPvaWCaXzMgRSL4cjKBjrFWN	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:24:39.787+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 TSTSsyW8sglax6r3gPz9jD7YiK0vExR0YsyCoOl5yuELRXnhXEjYG4UiSzaKlMOu	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-17 05:32:04.42+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 r3TIaqeN_udpcTwpaJSJ4umloYM12NrZOz7pNFyQQ5Ex4r_Kqd8NysGF-WYiF8Yi	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-17 05:33:44.739+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
-NXee5g69XXxLaaHOzMOdOZHC16ciaqdrAq8l_Rb3gdAnDBLSsOrEE3zuS7_mG0TL	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 03:01:24.765+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	2t-Gltigt3SB7VKlZhHTEnC4IRrj-9UuFw2Cnoc77m0vR3IJbLtGHNWLTaAwDBAW
 2t-Gltigt3SB7VKlZhHTEnC4IRrj-9UuFw2Cnoc77m0vR3IJbLtGHNWLTaAwDBAW	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-12 03:01:14.765+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+HIwLnaEKz9MJ56L4sI5ORoIN_Wr4mUMv130-6FZ4-ejuw9Ajibyl50boEfoqU87b	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-18 04:50:37.686+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 \.
 
 
@@ -1768,7 +1781,7 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) FROM stdin;
 ae30be52-1092-4f8f-9890-5035478b1bd9	team	example	team@example.com	$argon2id$v=19$m=65536,t=3,p=4$eOk7AmDWI4encuD5p6l+VQ$PuK7TxHm5eBUaN/qs5i9XypK84DcsgpPgtzUGJZ73Tw	\N	\N	\N	\N	\N	\N	\N	active	1de2bdca-b3a5-4fdb-b14f-ff9779a483fb	\N	2024-10-04 17:12:10.956+00	/files/folders/34a9a06b-2b48-49b8-9f2e-86feb90aeb3b	default	\N	\N	t	\N	\N	\N	\N	\N
-c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-11 03:01:14.768+00	/settings/flows	default	\N	\N	t	\N	\N	\N	\N	\N
+c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-11 04:50:37.7+00	/content/posts	default	\N	\N	t	\N	\N	\N	\N	\N
 \.
 
 
@@ -1892,7 +1905,7 @@ SELECT pg_catalog.setval('public.config_id_seq', 1, true);
 -- Name: directus_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_activity_id_seq', 2183, true);
+SELECT pg_catalog.setval('public.directus_activity_id_seq', 2184, true);
 
 
 --
@@ -2731,8 +2744,297 @@ ALTER TABLE ONLY public.directus_presets
 
 
 --
+-- Name: directus_revisions directus_revisions_activity_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_revisions
+    ADD CONSTRAINT directus_revisions_activity_foreign FOREIGN KEY (activity) REFERENCES public.directus_activity(id) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_revisions directus_revisions_parent_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_revisions
+    ADD CONSTRAINT directus_revisions_parent_foreign FOREIGN KEY (parent) REFERENCES public.directus_revisions(id);
+
+
+--
+-- Name: directus_revisions directus_revisions_version_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_revisions
+    ADD CONSTRAINT directus_revisions_version_foreign FOREIGN KEY (version) REFERENCES public.directus_versions(id) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_roles directus_roles_parent_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_roles
+    ADD CONSTRAINT directus_roles_parent_foreign FOREIGN KEY (parent) REFERENCES public.directus_roles(id);
+
+
+--
+-- Name: directus_sessions directus_sessions_share_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_sessions
+    ADD CONSTRAINT directus_sessions_share_foreign FOREIGN KEY (share) REFERENCES public.directus_shares(id) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_sessions directus_sessions_user_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_sessions
+    ADD CONSTRAINT directus_sessions_user_foreign FOREIGN KEY ("user") REFERENCES public.directus_users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_settings directus_settings_project_logo_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_settings
+    ADD CONSTRAINT directus_settings_project_logo_foreign FOREIGN KEY (project_logo) REFERENCES public.directus_files(id);
+
+
+--
+-- Name: directus_settings directus_settings_public_background_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_settings
+    ADD CONSTRAINT directus_settings_public_background_foreign FOREIGN KEY (public_background) REFERENCES public.directus_files(id);
+
+
+--
+-- Name: directus_settings directus_settings_public_favicon_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_settings
+    ADD CONSTRAINT directus_settings_public_favicon_foreign FOREIGN KEY (public_favicon) REFERENCES public.directus_files(id);
+
+
+--
+-- Name: directus_settings directus_settings_public_foreground_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_settings
+    ADD CONSTRAINT directus_settings_public_foreground_foreign FOREIGN KEY (public_foreground) REFERENCES public.directus_files(id);
+
+
+--
+-- Name: directus_settings directus_settings_public_registration_role_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_settings
+    ADD CONSTRAINT directus_settings_public_registration_role_foreign FOREIGN KEY (public_registration_role) REFERENCES public.directus_roles(id) ON DELETE SET NULL;
+
+
+--
+-- Name: directus_settings directus_settings_storage_default_folder_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_settings
+    ADD CONSTRAINT directus_settings_storage_default_folder_foreign FOREIGN KEY (storage_default_folder) REFERENCES public.directus_folders(id) ON DELETE SET NULL;
+
+
+--
+-- Name: directus_shares directus_shares_collection_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_shares
+    ADD CONSTRAINT directus_shares_collection_foreign FOREIGN KEY (collection) REFERENCES public.directus_collections(collection) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_shares directus_shares_role_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_shares
+    ADD CONSTRAINT directus_shares_role_foreign FOREIGN KEY (role) REFERENCES public.directus_roles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_shares directus_shares_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_shares
+    ADD CONSTRAINT directus_shares_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id) ON DELETE SET NULL;
+
+
+--
+-- Name: directus_users directus_users_role_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_users
+    ADD CONSTRAINT directus_users_role_foreign FOREIGN KEY (role) REFERENCES public.directus_roles(id) ON DELETE SET NULL;
+
+
+--
+-- Name: directus_versions directus_versions_collection_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_versions
+    ADD CONSTRAINT directus_versions_collection_foreign FOREIGN KEY (collection) REFERENCES public.directus_collections(collection) ON DELETE CASCADE;
+
+
+--
+-- Name: directus_versions directus_versions_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_versions
+    ADD CONSTRAINT directus_versions_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id) ON DELETE SET NULL;
+
+
+--
+-- Name: directus_versions directus_versions_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_versions
+    ADD CONSTRAINT directus_versions_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: directus_webhooks directus_webhooks_migrated_flow_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.directus_webhooks
+    ADD CONSTRAINT directus_webhooks_migrated_flow_foreign FOREIGN KEY (migrated_flow) REFERENCES public.directus_flows(id) ON DELETE SET NULL;
+
+
+--
+-- Name: posts_categories posts_categories_categories_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts_categories
+    ADD CONSTRAINT posts_categories_categories_id_foreign FOREIGN KEY (categories_id) REFERENCES public.categories(id) ON DELETE CASCADE;
+
+
+--
+-- Name: posts_categories posts_categories_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts_categories
+    ADD CONSTRAINT posts_categories_posts_id_foreign FOREIGN KEY (posts_id) REFERENCES public.posts(id) ON DELETE CASCADE;
+
+
+--
+-- Name: posts posts_cover_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts
+    ADD CONSTRAINT posts_cover_foreign FOREIGN KEY (cover) REFERENCES public.directus_files(id) ON DELETE SET NULL;
+
+
+--
+-- Name: posts_tags posts_tags_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts_tags
+    ADD CONSTRAINT posts_tags_posts_id_foreign FOREIGN KEY (posts_id) REFERENCES public.posts(id) ON DELETE CASCADE;
+
+
+--
+-- Name: posts_tags posts_tags_tags_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts_tags
+    ADD CONSTRAINT posts_tags_tags_id_foreign FOREIGN KEY (tags_id) REFERENCES public.tags(id) ON DELETE CASCADE;
+
+
+--
+-- Name: posts posts_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts
+    ADD CONSTRAINT posts_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: posts posts_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.posts
+    ADD CONSTRAINT posts_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: profiles profiles_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT profiles_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: profiles profiles_user_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT profiles_user_id_foreign FOREIGN KEY (user_id) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: profiles profiles_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT profiles_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: related related_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.related
+    ADD CONSTRAINT related_posts_id_foreign FOREIGN KEY (posts_id) REFERENCES public.posts(id) ON DELETE SET NULL;
+
+
+--
+-- Name: related related_related_posts_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.related
+    ADD CONSTRAINT related_related_posts_id_foreign FOREIGN KEY (related_posts_id) REFERENCES public.posts(id) ON DELETE SET NULL;
+
+
+--
+-- Name: routings routings_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.routings
+    ADD CONSTRAINT routings_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: static_pages static_pages_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.static_pages
+    ADD CONSTRAINT static_pages_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: static_pages static_pages_user_updated_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.static_pages
+    ADD CONSTRAINT static_pages_user_updated_foreign FOREIGN KEY (user_updated) REFERENCES public.directus_users(id);
+
+
+--
+-- Name: tags tags_user_created_foreign; Type: FK CONSTRAINT; Schema: public; Owner: docker
+--
+
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT tags_user_created_foreign FOREIGN KEY (user_created) REFERENCES public.directus_users(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
+
 
 
 
