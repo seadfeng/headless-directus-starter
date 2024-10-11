@@ -1,7 +1,7 @@
 import { defineOperationApp } from '@directus/extensions-sdk';
 
 export default defineOperationApp({
-	id: 'google-ai',
+	id: 'googleAi',
 	name: 'Google AI',
 	icon: 'robot',
 	description: 'This is Google AI operation!',

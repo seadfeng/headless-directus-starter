@@ -7,7 +7,7 @@ type Options = {
 };
 
 export default defineOperationApi<Options>({
-	id: 'google-ai',
+	id: 'googleAi',
 	handler: async ({ aiModel, prompt }) => {
 		try {
 			if (!prompt) {
