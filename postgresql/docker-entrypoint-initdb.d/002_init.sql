@@ -1,6 +1,3 @@
-SET session_replication_role = 'replica';
-
-
 --
 -- PostgreSQL database dump
 --
@@ -1282,6 +1279,8 @@ COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, 
 2184	login	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 04:50:37.696+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_users	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	http://localhost:8055
 2185	update	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:20:17.152+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_collections	config	\N	http://localhost:8055
 2186	update	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:20:32.453+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_collections	config	\N	http://localhost:8055
+2187	login	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:23:01.561+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_users	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	http://localhost:8055
+2188	delete	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:50:34.145+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_extensions	7be6f209-7702-4005-a449-1e3eef02a030	\N	http://localhost:8055
 \.
 
 
@@ -1324,7 +1323,6 @@ t	e25af610-381b-4787-9ce6-a18dbffa863a	9bde3cf6-c3bd-4bbf-befe-e65294d4b632	regi
 t	78fc600e-085d-49e2-8c28-9e952a1765d9	e3065f4a-5810-431f-9a1c-2c8c3847e562	registry	\N
 t	e9432070-157d-46ef-9bd6-ea1880e26188	directus-extension-hook-action	local	\N
 t	2cba5a87-43f9-41d5-b917-b9dc05aaad49	directus-extension-markdown-to-html	local	\N
-t	7be6f209-7702-4005-a449-1e3eef02a030	directus-extension-gemini-ai	local	\N
 t	ca83a063-a522-4872-bbdb-0e87b82388d9	directus-extension-google-ai	local	\N
 \.
 
@@ -1676,14 +1674,14 @@ COPY public.directus_presets (id, bookmark, "user", role, collection, search, la
 10	\N	ae30be52-1092-4f8f-9890-5035478b1bd9	\N	directus_users	\N	cards	{"cards":{"sort":["email"],"page":1}}	{"cards":{"icon":"account_circle","title":"{{ first_name }} {{ last_name }}","subtitle":"{{ email }}","size":4}}	\N	\N	bookmark	\N
 7	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_users	\N	cards	{"cards":{"sort":["email"],"page":1}}	{"cards":{"icon":"account_circle","title":"{{ first_name }} {{ last_name }}","subtitle":"{{ email }}","size":4}}	\N	\N	bookmark	\N
 15	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	posts_tags	\N	\N	{"tabular":{"page":1,"fields":["date_created"]}}	{"tabular":{"widths":{"date_created":404.9765625}}}	\N	\N	bookmark	\N
-5	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_files	\N	cards	{"cards":{"sort":["-uploaded_on"],"page":1}}	{"cards":{"icon":"insert_drive_file","title":"{{title}}","subtitle":"{{type}} • {{filesize}}","size":5,"imageFit":"crop"}}	\N	\N	bookmark	\N
 4	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	routings	\N	\N	{"tabular":{"page":1,"fields":["name","identity","meta_title","meta_description"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
-1	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	posts	\N	\N	{"tabular":{"page":1,"fields":["title","slug","status","views","date_published"]}}	{"tabular":{"widths":{"title":473.98828125,"slug":173.6328125,"status":118.29296875,"views":148.828125,"date_published":284.85546875}}}	\N	\N	bookmark	\N
 16	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_activity	\N	tabular	{"tabular":{"sort":["-timestamp"],"fields":["action","collection","timestamp","user"],"page":1}}	{"tabular":{"widths":{"action":120,"collection":210,"timestamp":240,"user":240}}}	\N	\N	bookmark	\N
+12	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	profiles	\N	\N	{"tabular":{"page":1,"fields":["name","status","user_id"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
+5	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	directus_files	\N	cards	{"cards":{"sort":["-uploaded_on"],"page":1}}	{"cards":{"icon":"insert_drive_file","title":"{{title}}","subtitle":"{{type}} • {{filesize}}","size":5,"imageFit":"crop"}}	\N	\N	bookmark	\N
 3	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	tags	\N	\N	{"tabular":{"page":1,"fields":["name","display_name","posts_count"]}}	{"tabular":{"widths":{"name":185.99609375}}}	\N	\N	bookmark	\N
 13	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	static_pages	\N	\N	{"tabular":{"page":1,"fields":["title","slug","status","meta_title"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
 2	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	categories	\N	\N	{"tabular":{"page":1,"fields":["position","name","slug","cover"]}}	{"tabular":{"widths":{"position":97.8984375}}}	\N	\N	bookmark	\N
-12	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	profiles	\N	\N	{"tabular":{"page":1,"fields":["name","status","user_id"]}}	{"tabular":{"widths":{}}}	\N	\N	bookmark	\N
+1	\N	c95f7d22-c805-4afc-8c14-d3875b84881c	\N	posts	\N	\N	{"tabular":{"page":1,"fields":["title","slug","status","views","date_published"]}}	{"tabular":{"widths":{"title":473.98828125,"slug":173.6328125,"status":118.29296875,"views":148.828125,"date_published":284.85546875}}}	\N	\N	bookmark	\N
 \.
 
 
@@ -1746,12 +1744,12 @@ a111ed3a-859a-4365-9c5e-ae3783d69ba5	Administrator	verified	$t:admin_description
 --
 
 COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, origin, next_token) FROM stdin;
-hlQd51eYVIrlRV10Sv4NAOkKDxfidC5dDtgrdUMroPvaWCaXzMgRSL4cjKBjrFWN	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:24:39.787+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 TSTSsyW8sglax6r3gPz9jD7YiK0vExR0YsyCoOl5yuELRXnhXEjYG4UiSzaKlMOu	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-17 05:32:04.42+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 r3TIaqeN_udpcTwpaJSJ4umloYM12NrZOz7pNFyQQ5Ex4r_Kqd8NysGF-WYiF8Yi	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-17 05:33:44.739+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 2t-Gltigt3SB7VKlZhHTEnC4IRrj-9UuFw2Cnoc77m0vR3IJbLtGHNWLTaAwDBAW	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-12 03:01:14.765+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
-6r2dJ7iYQ87GMWqZMQbwZ7A3KkICCZmoAHKd-0Iit1TTUX08aj7ec6xVKJxPYcdq	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 05:21:06.407+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	pPLLykgG_-T1gNPZAa0NkL0bNVEcGG2kGJhuYVHF-M7kd_XD9QDECJhpJCcPTbRR
 pPLLykgG_-T1gNPZAa0NkL0bNVEcGG2kGJhuYVHF-M7kd_XD9QDECJhpJCcPTbRR	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-12 05:20:56.407+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+KBsw9KCQzavAUBR6ITJ1QtAYk0W40liMOVkggpk30W8q7_8myfa57SARbeBvdHFD	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-11 06:09:06.655+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	1cw7oDQHHjK5ppO73Nm3_q-zRuCCS2amA-A1oCM07pWFoPHb4Yi1DWgEwK0ScwtJ
+1cw7oDQHHjK5ppO73Nm3_q-zRuCCS2amA-A1oCM07pWFoPHb4Yi1DWgEwK0ScwtJ	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-12 06:08:56.655+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 \.
 
 
@@ -1786,7 +1784,7 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) FROM stdin;
 ae30be52-1092-4f8f-9890-5035478b1bd9	team	example	team@example.com	$argon2id$v=19$m=65536,t=3,p=4$eOk7AmDWI4encuD5p6l+VQ$PuK7TxHm5eBUaN/qs5i9XypK84DcsgpPgtzUGJZ73Tw	\N	\N	\N	\N	\N	\N	\N	active	1de2bdca-b3a5-4fdb-b14f-ff9779a483fb	\N	2024-10-04 17:12:10.956+00	/files/folders/34a9a06b-2b48-49b8-9f2e-86feb90aeb3b	default	\N	\N	t	\N	\N	\N	\N	\N
-c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-11 05:20:56.409+00	/content/about_us	default	\N	\N	t	\N	\N	\N	\N	\N
+c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-11 06:08:56.657+00	/settings/extensions	default	\N	\N	t	\N	\N	\N	\N	\N
 \.
 
 
@@ -1910,7 +1908,7 @@ SELECT pg_catalog.setval('public.config_id_seq', 1, true);
 -- Name: directus_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_activity_id_seq', 2186, true);
+SELECT pg_catalog.setval('public.directus_activity_id_seq', 2188, true);
 
 
 --
@@ -3040,8 +3038,3 @@ ALTER TABLE ONLY public.tags
 -- PostgreSQL database dump complete
 --
 
-
-
-
-
-SET session_replication_role = 'origin';
