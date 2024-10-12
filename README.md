@@ -31,6 +31,7 @@ cp .env.example .env
 
 # start
 docker compose up -d
+
 ```
 
 
@@ -38,6 +39,28 @@ docker compose up -d
 
 - User: admin@example.com
 - Password: d1r3ctu5
+
+
+## Deploy With New Database Data
+
+If you need to use the database from your local development environment, follow these steps:
+
+Ensure that your container is running.
+
+This operation overwrites the [default database files](postgresql/docker-entrypoint-initdb.d/002_init.sql) 
+
+```bash
+
+# overwrites init db file
+docker compose exec postgres pg_dump -U docker --format=plain directus > ./postgresql/docker-entrypoint-initdb.d/002_init.sql
+
+# Push to your git Repository
+# 
+git add ./postgresql/docker-entrypoint-initdb.d/002_init.sql
+git commit -m "overwrites 002_init.sql"
+git push
+
+```
 
 ## Installed Extensions
 
