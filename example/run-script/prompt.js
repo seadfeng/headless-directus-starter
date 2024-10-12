@@ -12,9 +12,9 @@ module.exports = async function ({ $trigger }) {
   if (keywords && keywords.trim() !== '') promptStr += `Article SEO keywords: ${keywords}\n\n`;
   promptStr += "```html\n";
   promptStr += html_code;
-  promptStr += "```\n";
+  promptStr += "\n```\n\n";
 
-  promptStr += `${prompt}\n`;
+  promptStr += `${prompt}\n\n`;
   promptStr += `Article content structure (do not add an opening title): \n\n`;
   promptStr += `introduction Without Paragraph heading ... \n\n`;
   promptStr += `## Paragraph heading 1\n\n`;
