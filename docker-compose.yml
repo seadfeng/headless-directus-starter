@@ -2,7 +2,7 @@ services:
   directus:
     image: directus/directus:11.1.0
     ports:
-      - 8055:8055
+      - 8058:8055
     env_file: .env
     environment:
       DB_DATABASE: directus
