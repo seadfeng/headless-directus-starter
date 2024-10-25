@@ -72,3 +72,8 @@ git push
 ## Resource
 
 - [Directus Developer Blog](https://docs.directus.io/blog/)
+
+
+## Frontend Templates
+
+- [astro-directus-starter](https://github.com/seadfeng/astro-directus-starter)
