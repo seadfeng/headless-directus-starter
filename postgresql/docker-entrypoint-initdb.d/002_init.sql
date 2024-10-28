@@ -3572,6 +3572,62 @@ COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, 
 4477	run	\N	2024-10-28 04:16:13.007+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
 4478	run	\N	2024-10-28 04:16:14.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
 4479	run	\N	2024-10-28 04:16:15.007+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4480	run	\N	2024-10-28 04:16:16.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4481	run	\N	2024-10-28 04:16:17.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4482	run	\N	2024-10-28 04:16:18.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4483	run	\N	2024-10-28 04:16:19.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4484	run	\N	2024-10-28 04:16:20.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4485	run	\N	2024-10-28 04:16:21.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4486	run	\N	2024-10-28 04:16:22.005+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4487	run	\N	2024-10-28 04:16:23.007+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4488	run	\N	2024-10-28 04:16:24.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4489	run	\N	2024-10-28 04:16:25.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4490	run	\N	2024-10-28 04:16:26.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4491	run	\N	2024-10-28 04:16:27.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4492	run	\N	2024-10-28 04:16:28.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4493	run	\N	2024-10-28 04:16:29.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4494	run	\N	2024-10-28 04:16:30.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4495	run	\N	2024-10-28 04:16:31.008+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4496	run	\N	2024-10-28 04:16:32.005+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4497	run	\N	2024-10-28 04:16:33.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4498	run	\N	2024-10-28 04:16:34.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4499	run	\N	2024-10-28 04:16:35.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4500	run	\N	2024-10-28 04:16:36.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4501	run	\N	2024-10-28 04:16:37.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4502	run	\N	2024-10-28 04:16:38.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4503	run	\N	2024-10-28 04:16:39.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4504	run	\N	2024-10-28 04:16:40.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4505	run	\N	2024-10-28 04:16:41.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4506	run	\N	2024-10-28 04:16:42.007+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4507	run	\N	2024-10-28 04:16:43.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4508	run	\N	2024-10-28 04:16:44.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4509	run	\N	2024-10-28 04:16:45.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4510	run	\N	2024-10-28 04:16:46.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4511	run	\N	2024-10-28 04:16:47.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4512	run	\N	2024-10-28 04:16:48.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4513	run	\N	2024-10-28 04:16:49.008+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4514	run	\N	2024-10-28 04:16:50.015+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4515	run	\N	2024-10-28 04:16:51.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4516	run	\N	2024-10-28 04:16:52.005+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4517	run	\N	2024-10-28 04:16:53.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4518	run	\N	2024-10-28 04:16:54.004+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4519	run	\N	2024-10-28 04:16:55.008+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4520	run	\N	2024-10-28 04:16:56.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4521	run	\N	2024-10-28 04:16:57.008+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4522	run	\N	2024-10-28 04:16:58.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4523	run	\N	2024-10-28 04:16:59.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4524	run	\N	2024-10-28 04:17:00.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4525	run	\N	2024-10-28 04:17:01.012+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4526	run	\N	2024-10-28 04:17:02.006+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4527	create	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-28 04:17:02.475+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_permissions	44	\N	http://localhost:8058
+4528	update	c95f7d22-c805-4afc-8c14-d3875b84881c	2024-10-28 04:17:02.486+00	192.168.65.1	Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36	directus_policies	abf8a154-5b1c-4a46-ac9c-7300570f4f17	\N	http://localhost:8058
+4529	run	\N	2024-10-28 04:17:03.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4530	run	\N	2024-10-28 04:17:04.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4531	run	\N	2024-10-28 04:17:05.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4532	run	\N	2024-10-28 04:17:06.018+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4533	run	\N	2024-10-28 04:17:07.011+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4534	run	\N	2024-10-28 04:17:08.009+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
+4535	run	\N	2024-10-28 04:17:09.01+00	\N	\N	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	\N	\N
 \.
 
 
@@ -3941,6 +3997,7 @@ COPY public.directus_permissions (id, collection, action, permissions, validatio
 41	about_us_profiles	update	\N	\N	\N	*	25b9b60b-f1ed-4a91-829f-8195c80504c3
 42	about_us_profiles	create	\N	\N	\N	*	25b9b60b-f1ed-4a91-829f-8195c80504c3
 43	about_us_profiles	delete	\N	\N	\N	*	25b9b60b-f1ed-4a91-829f-8195c80504c3
+44	directus_files	read	\N	\N	\N	*	abf8a154-5b1c-4a46-ac9c-7300570f4f17
 \.
 
 
@@ -6307,6 +6364,61 @@ COPY public.directus_revisions (id, activity, collection, item, data, delta, par
 4356	4477	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
 4357	4478	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
 4358	4479	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4359	4480	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4360	4481	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4361	4482	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4362	4483	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4363	4484	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4364	4485	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4365	4486	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4366	4487	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4367	4488	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4368	4489	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4369	4490	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4370	4491	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4371	4492	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4372	4493	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4373	4494	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4374	4495	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4375	4496	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4376	4497	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4377	4498	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4378	4499	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4379	4500	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4380	4501	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4381	4502	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4382	4503	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4383	4504	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4384	4505	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4385	4506	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4386	4507	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4387	4508	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4388	4509	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4389	4510	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4390	4511	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4391	4512	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4392	4513	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4393	4514	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4394	4515	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4395	4516	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4396	4517	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4397	4518	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4398	4519	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4399	4520	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4400	4521	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4401	4522	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4402	4523	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4403	4524	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4404	4525	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4405	4526	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4406	4527	directus_permissions	44	{"policy":"abf8a154-5b1c-4a46-ac9c-7300570f4f17","permissions":null,"validation":null,"fields":["*"],"presets":null,"collection":"directus_files","action":"read"}	{"policy":"abf8a154-5b1c-4a46-ac9c-7300570f4f17","permissions":null,"validation":null,"fields":["*"],"presets":null,"collection":"directus_files","action":"read"}	\N	\N
+4407	4529	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4408	4530	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4409	4531	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4410	4532	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4411	4533	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4412	4534	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
+4413	4535	directus_flows	838ba6fb-d365-4870-b3cf-a8e061a1b880	{"steps":[],"data":{"$trigger":null,"$last":null,"$accountability":null,"$env":{}}}	\N	\N	\N
 \.
 
 
@@ -6361,7 +6473,7 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) FROM stdin;
 ae30be52-1092-4f8f-9890-5035478b1bd9	team	example	team@example.com	$argon2id$v=19$m=65536,t=3,p=4$eOk7AmDWI4encuD5p6l+VQ$PuK7TxHm5eBUaN/qs5i9XypK84DcsgpPgtzUGJZ73Tw	\N	\N	\N	\N	\N	\N	\N	active	1de2bdca-b3a5-4fdb-b14f-ff9779a483fb	\N	2024-10-04 17:12:10.956+00	/files/folders/34a9a06b-2b48-49b8-9f2e-86feb90aeb3b	default	\N	\N	t	\N	\N	\N	\N	\N
-c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-28 04:16:00.927+00	/settings/data-model	default	\N	\N	t	\N	\N	\N	\N	\N
+c95f7d22-c805-4afc-8c14-d3875b84881c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$sD37G8H5SrYjEXCMyeBsiw$LzizPUZt5w/uV/cABpmpaneTjtzkkZs7VFuMs9ioCt4	\N	\N	\N	\N	\N	\N	\N	active	a111ed3a-859a-4365-9c5e-ae3783d69ba5	ns40P30Eg2QoMpMLrEy62zc5Id04uKA6	2024-10-28 04:16:00.927+00	/settings/policies	default	\N	\N	t	\N	\N	\N	\N	\N
 \.
 
 
@@ -6485,7 +6597,7 @@ SELECT pg_catalog.setval('public.config_id_seq', 1, true);
 -- Name: directus_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_activity_id_seq', 4479, true);
+SELECT pg_catalog.setval('public.directus_activity_id_seq', 4535, true);
 
 
 --
@@ -6506,7 +6618,7 @@ SELECT pg_catalog.setval('public.directus_notifications_id_seq', 1, false);
 -- Name: directus_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_permissions_id_seq', 43, true);
+SELECT pg_catalog.setval('public.directus_permissions_id_seq', 44, true);
 
 
 --
@@ -6527,7 +6639,7 @@ SELECT pg_catalog.setval('public.directus_relations_id_seq', 40, true);
 -- Name: directus_revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: docker
 --
 
-SELECT pg_catalog.setval('public.directus_revisions_id_seq', 4358, true);
+SELECT pg_catalog.setval('public.directus_revisions_id_seq', 4413, true);
 
 
 --
